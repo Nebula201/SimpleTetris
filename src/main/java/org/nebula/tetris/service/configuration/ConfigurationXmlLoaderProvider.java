@@ -2,7 +2,7 @@ package org.nebula.tetris.service.configuration;
 
 import org.nebula.tetris.Constants;
 import org.nebula.tetris.model.configuration.Configuration;
-import org.nebula.tetris.service.platform.PlatformService;
+import org.nebula.tetris.util.Platform;
 
 import javax.swing.*;
 import java.awt.*;
@@ -22,7 +22,7 @@ public class ConfigurationXmlLoaderProvider implements ConfigurationLoader {
             }
         }
 
-        if (PlatformService.getInstance().isLinux()) {
+        if (Platform.isLinux()) {
             String xdgConfigHome = System.getenv("XDG_CONFIG_HOME");
             if (xdgConfigHome != null) {
                 File xdgConfigHomeFile = new File(xdgConfigHome);
@@ -35,7 +35,7 @@ public class ConfigurationXmlLoaderProvider implements ConfigurationLoader {
             if (userConfigFile.exists()) {
                 return new File(userConfigFile, Constants.CONFIG_FILENAME);
             }
-        } else if (PlatformService.getInstance().isWindows()) {
+        } else if (Platform.isWindows()) {
             String roamingConfigHome = System.getenv("APPDATA");
             if (roamingConfigHome != null) {
                 File roamingConfigHomeFile = new File(roamingConfigHome);
