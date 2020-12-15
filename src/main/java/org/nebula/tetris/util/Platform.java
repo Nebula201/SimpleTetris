@@ -3,7 +3,7 @@ package org.nebula.tetris.util;
 public enum Platform {
     Windows, MacOSX, Linux, Other;
 
-    public final static Platform os = getOS();
+    public final static Platform OS = getOS();
 
     private static Platform getOS() {
 //        System.out.println("System.getProperty(\"os.name\").toLowerCase()");
@@ -21,14 +21,14 @@ public enum Platform {
     }
 
     public static boolean isLinux() {
-        return os == Linux;
+        return OS == Linux;
     }
 
     public static boolean isWindows() {
-        return os == Windows;
+        return OS == Windows;
     }
 
     public static boolean isMacOSX() {
-        return os == MacOSX;
+        return OS == MacOSX;
     }
 }
